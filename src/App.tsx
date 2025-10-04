@@ -43,9 +43,7 @@ function App() {
         Reset
       </button>
       <ThemeButton />
-      <footer>
-        <div>yoyoyo</div>
-      </footer>
+      <footer>{/* <div>yoyoyo</div> */}</footer>
     </>
   );
 }
