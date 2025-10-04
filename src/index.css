@@ -1,8 +1,41 @@
 :root {
-  font-family: monospace;
+  --color-scheme: light dark;
 
+  --btn-padding: 0.5em 0.75em;
+  --btn-radius: 5px;
+
+  font-family: monospace;
+  color-scheme: var(--color-scheme);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --clr-fg: black;
+    --clr-bg: antiquewhite;
+    --clr-btn-bg: powderblue;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-fg: antiquewhite;
+    --clr-bg: black;
+    --clr-btn-bg: gray;
+  }
+}
+
+[data-theme="light"] {
+  color-scheme: only light;
+  --clr-fg: black;
   --clr-bg: antiquewhite;
   --clr-btn-bg: powderblue;
+}
+
+[data-theme="dark"] {
+  color-scheme: only dark;
+  --clr-fg: antiquewhite;
+  --clr-bg: black;
+  --clr-btn-bg: gray;
 }
 
 * {
@@ -12,12 +45,14 @@
 }
 
 body {
+  color: var(--clr-fg);
   background-color: var(--clr-bg);
 }
 
 #root {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
 }
 
@@ -30,6 +65,7 @@ footer {
   margin-top: auto;
   text-align: center;
   padding: 1rem 0;
+  width: 100%;
 }
 
 button {
@@ -39,6 +75,11 @@ button {
 }
 button:hover {
   filter: brightness(1.1);
+}
+
+select {
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .app-name {
@@ -87,9 +128,19 @@ button:hover {
 .reset-btn {
   font-size: 2rem;
   background-color: var(--clr-btn-bg);
-  padding: 0.5em 0.75em;
-  margin: 0 auto;
-  border-radius: 5px;
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+}
+
+.theme-select {
+  padding-top: 2rem;
+  font-size: 2rem;
+
+  & select {
+    color: inherit;
+    background-color: var(--clr-bg);
+    padding: 0.25em;
+  }
 }
 
 .cursor-pointer {
@@ -100,6 +151,4 @@ button:hover {
   cursor: not-allowed;
 }
 
-/* * { */
-/*   outline: 1px solid hotpink; */
-/* } */
+/* * { outline: 1px solid hotpink; } */

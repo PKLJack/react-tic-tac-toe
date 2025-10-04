@@ -8,7 +8,7 @@ interface CellProps {
 }
 
 export default function Cell({ index }: CellProps) {
-  console.log("render Cell", index);
+  console.debug("render Cell", index);
 
   const { arr } = useStateContext();
   const dispatch = useStateDispatchContext();

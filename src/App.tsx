@@ -5,8 +5,7 @@ import {
 import Board from "./components/Board";
 import Cell from "./components/Cell";
 import { getGameStatus, getWinner } from "./utils";
-
-// function dummy() { console.log("dummy"); }
+import ThemeButton from "./components/ThemeButton";
 
 function App() {
   console.log("Render App()");
@@ -43,6 +42,7 @@ function App() {
       <button onClick={() => dispatch({ type: "reset" })} className="reset-btn">
         Reset
       </button>
+      <ThemeButton />
       <footer>
         <div>yoyoyo</div>
       </footer>
